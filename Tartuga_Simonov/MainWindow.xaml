@@ -11,7 +11,7 @@
         WindowState="Minimized"
         >
 
-    <Grid Background="#FFFDD0"
+    <Grid 
           >
         <Grid.RowDefinitions>
             <RowDefinition Height="121"/>
@@ -27,22 +27,34 @@
             <TextBlock Margin="0 220 0 0"
                        Text="Выпечка"
                        TextAlignment="Center"
-                       FontSize="36" Foreground="#FFF5EBEB" TextDecorations="Underline" FontStyle="Italic"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
                 />
             <TextBlock Margin="0 30 0 0"
                        Text="Напитки"
                        TextAlignment="Center"
-                       FontSize="36" Foreground="#FFF5EBEB" TextDecorations="Underline" FontStyle="Italic"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
                 />
             <TextBlock Margin="0 30 0 0"
                        Text="Бургеры"
                        TextAlignment="Center"
-                       FontSize="36" Foreground="#FFF5EBEB" TextDecorations="Underline" FontStyle="Italic"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
                 />
             <TextBlock Margin="0 30 0 0"
                        Text="Пицца"
                        TextAlignment="Center"
-                       FontSize="36" Foreground="#FFF5EBEB" TextDecorations="Underline" FontStyle="Italic"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
                 />
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2"
@@ -52,63 +64,178 @@
             </StackPanel.Effect>
 
         </StackPanel>
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Background="#FFFDD0">
+            <TextBlock Text="Выпечка"
+                       FontSize="45"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top" FontWeight="Bold" FontStyle="Normal" FontFamily="Times New Roman"
+                />
+        </Grid>
+        <StackPanel Grid.Column="1" 
+                    Grid.Row="1"
+                    Width="250"
+                    Height="150"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="150 60 200 0"
+                    Background="White"
+                    
+                    >
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+            <Image Source="/Images/cookie.png"
+                   Width="150"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Печенье"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="100 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
 
-        <StackPanel Grid.Column="1" 
-                    Grid.Row="1"
-                    Width="250"
-                    Height="150"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Margin="100 50 200 0"
-                    Background="White"
-                    
-                 />
+        </StackPanel>
         <StackPanel Grid.Column="1" 
                     Grid.Row="1"
                     Width="250"
                     Height="150"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
-                    Margin="100 50 200 0"
-                    Background="White"
-                    
-                 />
+                    Margin="100 60 150 0" Background="White"
+                 >
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+            <Image Source="/Images/cake.png"
+                   Width="150"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Торт"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="200 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
+        </StackPanel>
         <StackPanel Grid.Column="1" 
                     Grid.Row="1"
                     Width="250"
                     Height="150"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="100 10 200 0"
+                    Margin="150 20 200 0"
                     Background="White"
-                 />
+                 >
+            <Image Source="/Images/Bylochka.png"
+                   Width="150"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Булочка с корицей"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="150 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+        </StackPanel>
         <StackPanel Grid.Column="1" 
                     Grid.Row="1"
                     Width="250"
                     Height="150"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Margin="100 10 200 0"
+                    Margin="100 20 150 0"
                     Background="White"
-                 />
+                 >
+            <Image Source="/Images/Croissants.png"
+                   Width="200"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Круасаны"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="150 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+        </StackPanel>
         <StackPanel Grid.Column="1" 
                     Grid.Row="1"
                     Width="250"
                     Height="150"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Margin="100 0 200 50"
+                    Margin="100 0 150 40"
                     Background="White"
-                 />
+                 >
+            <Image Source="/Images/PieWithApples.png"
+                   Width="150"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Пирог с яблоками"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="500 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+        </StackPanel>
         <StackPanel Grid.Column="1" 
                     Grid.Row="1"
                     Width="250"
                     Height="150"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="100 0 200 50"
+                    Margin="150 0 200 40"
                     Background="White"
-                 />
+                 >
+            <Image Source="/Images/Rylet.png"
+                   Width="150"
+                   Margin="0 0 0 0"
+                />
+            <TextBlock Text="Рулет с маком"
+                       TextAlignment="Center"
+                       Margin="0 -10 0 0"     
+                       FontSize="20" FontWeight="Bold" FontStyle="Normal"
+                />
+            <TextBlock Text="200 рублей"
+                       TextAlignment="Center"
+                       Margin="0 0 0 0"
+                       FontSize="20" FontWeight="Bold"
+                />
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+        </StackPanel>
     </Grid>
 
 </Window>

@@ -95,7 +95,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\Cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cookie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cookie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bylochka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Croissants.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Rylet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PieWithApples.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
