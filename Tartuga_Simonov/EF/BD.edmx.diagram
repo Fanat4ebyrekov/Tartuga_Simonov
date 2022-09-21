@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb34c00f28bb4e7a94e6a103a09f1784" Name="Diagram1">
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Bakery" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Beverage" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.FastFood" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Salad" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Table" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeBeverage" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeDish" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Bakery" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Beverage_TypeBeverage" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Beverage" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_FastFood" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Salad" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Salad_TypeDish" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

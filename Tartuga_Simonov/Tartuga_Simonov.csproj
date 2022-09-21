@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -79,6 +88,54 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EF\Bakery.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Beverage.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\FastFood.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Order.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Salad.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagrams_Result.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sysdiagrams.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Table.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TypeBeverage.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TypeDish.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Bakery.xaml.cs">
       <DependentUpon>Bakery.xaml</DependentUpon>
     </Compile>
@@ -114,6 +171,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="EF\BD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\BD.edmx.diagram">
+      <DependentUpon>BD.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,14 +208,27 @@
   <ItemGroup>
     <Resource Include="Images\PieWithApples.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EF\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\CocaCola.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\pepsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EF\BD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BD.Context.cs</LastGenOutput>
+      <DependentUpon>BD.edmx</DependentUpon>
+    </Content>
+    <Content Include="EF\BD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BD.edmx</DependentUpon>
+      <LastGenOutput>BD.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
