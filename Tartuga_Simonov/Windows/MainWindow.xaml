@@ -41,7 +41,7 @@
                        FontStyle="Italic"
                 />
             <TextBlock Margin="0 30 0 0"
-                       Text="Бургеры"
+                       Text="Фастфуд"
                        TextAlignment="Center"
                        FontSize="36" 
                        Foreground="#FFF5EBEB" 
@@ -49,7 +49,7 @@
                        FontStyle="Italic"
                 />
             <TextBlock Margin="0 30 0 0"
-                       Text="Пицца"
+                       Text="Салат"
                        TextAlignment="Center"
                        FontSize="36" 
                        Foreground="#FFF5EBEB" 
