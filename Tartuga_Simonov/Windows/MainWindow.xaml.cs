@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tartuga_Simonov.Pages;
 
 namespace Tartuga_Simonov
 {
@@ -25,6 +26,16 @@ namespace Tartuga_Simonov
         {
             InitializeComponent();
 
+        }
+
+        private void Bakery_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Bakery());
+        }
+
+        private void Berevage_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Beverage());
         }
     }
 }

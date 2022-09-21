@@ -1,4 +1,4 @@
-﻿<Page x:Class="Tartuga_Simonov.Pages.Bakery"
+﻿<Page x:Class="Tartuga_Simonov.Pages.Beverage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,19 +6,19 @@
       xmlns:local="clr-namespace:Tartuga_Simonov.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1010"
-      Title="Bakery"
+      Title="Beverage"
       Background="#FFFDD0">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" 
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" 
                     Grid.Row="0"
                     Width="300"
                     Height="200"
@@ -28,14 +28,15 @@
                     Background="White" 
                     
                     >
-            <StackPanel.Effect>
-                <DropShadowEffect/>
-            </StackPanel.Effect>
-            <Image Source="/Images/cookie.png"
+                <StackPanel.Effect>
+                    <DropShadowEffect/>
+                </StackPanel.Effect>
+                <Image Source="/Images/CocaCola.png"
                    Width="150"
+                   Height="150"
                    Margin="0 0 0 0"
                 />
-            <TextBlock Text="Печенье"
+                <TextBlock Text="Coca-Cola 1л"
                        TextAlignment="Center"
                        Margin="0 -10 0 0"     
                        FontSize="20" 
@@ -43,13 +44,13 @@
                        TextWrapping="Wrap"
                        FontStyle="Normal"
                 />
-            <TextBlock Text="100 рублей"
+                <TextBlock Text="150 рублей"
                        TextAlignment="Center"
                        Margin="0 0 0 0"
                        FontSize="20" FontWeight="Bold"
                 />
-        </StackPanel>
-        <StackPanel Grid.Column="1" 
+            </StackPanel>
+            <StackPanel Grid.Column="1" 
                     Grid.Row="0"
                     Width="300"
                     Height="200"
@@ -58,23 +59,24 @@
                     Background="White"
                     Margin="4"
                  >
-            <StackPanel.Effect>
-                <DropShadowEffect/>
-            </StackPanel.Effect>
-            <Image Source="/Images/cake.png"
+                <StackPanel.Effect>
+                    <DropShadowEffect/>
+                </StackPanel.Effect>
+                <Image Source="/Images/pepsi.png"
                    Width="150"
-                   Margin="0 0 0 0"
+                   Margin="0 0 0 0" 
+                   Height="150"
                 />
-            <TextBlock Text="Торт"
+                <TextBlock Text="Pepsi 2л"
                        TextAlignment="Center"
                        Margin="0 -10 0 0"     
                        FontSize="20" FontWeight="Bold" FontStyle="Normal"
                 />
-            <TextBlock Text="200 рублей"
+                <TextBlock Text="200 рублей"
                        TextAlignment="Center"
                        Margin="0 0 0 0"
                        FontSize="20" FontWeight="Bold"
                 />
-        </StackPanel>
-    </Grid>
+            </StackPanel>
+        </Grid>
 </Page>

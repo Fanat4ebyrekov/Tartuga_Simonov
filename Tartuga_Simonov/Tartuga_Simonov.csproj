@@ -59,6 +59,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Beverage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FastFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Salad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +81,15 @@
     </Compile>
     <Compile Include="Pages\Bakery.xaml.cs">
       <DependentUpon>Bakery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Beverage.xaml.cs">
+      <DependentUpon>Beverage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FastFood.xaml.cs">
+      <DependentUpon>FastFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salad.xaml.cs">
+      <DependentUpon>Salad.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -124,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CocaCola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pepsi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
