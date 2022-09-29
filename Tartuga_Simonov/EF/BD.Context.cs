@@ -28,10 +28,17 @@ namespace Tartuga_Simonov.EF
         }
     
         public virtual DbSet<Bakery> Bakery { get; set; }
+        public virtual DbSet<BakeryOrder> BakeryOrder { get; set; }
         public virtual DbSet<Beverage> Beverage { get; set; }
+        public virtual DbSet<BeverageOrder> BeverageOrder { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<FastFood> FastFood { get; set; }
+        public virtual DbSet<FastFoodOrder> FastFoodOrder { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Salad> Salad { get; set; }
+        public virtual DbSet<SaladOrder> SaladOrder { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Table> Table { get; set; }
         public virtual DbSet<TypeBeverage> TypeBeverage { get; set; }

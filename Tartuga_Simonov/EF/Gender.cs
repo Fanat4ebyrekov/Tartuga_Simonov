@@ -12,21 +12,18 @@ namespace Tartuga_Simonov.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class FastFood
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FastFood()
+        public Gender()
         {
-            this.FastFoodOrder = new HashSet<FastFoodOrder>();
+            this.Employee = new HashSet<Employee>();
         }
     
         public int ID { get; set; }
-        public string Title { get; set; }
-        public string Compound { get; set; }
-        public string Calories { get; set; }
-        public decimal Cost { get; set; }
+        public string NameGender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FastFoodOrder> FastFoodOrder { get; set; }
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

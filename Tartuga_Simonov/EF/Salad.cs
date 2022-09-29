@@ -17,7 +17,7 @@ namespace Tartuga_Simonov.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Salad()
         {
-            this.Order = new HashSet<Order>();
+            this.SaladOrder = new HashSet<SaladOrder>();
         }
     
         public int ID { get; set; }
@@ -27,8 +27,8 @@ namespace Tartuga_Simonov.EF
         public string Calories { get; set; }
         public int TypeDishID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
         public virtual TypeDish TypeDish { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaladOrder> SaladOrder { get; set; }
     }
 }

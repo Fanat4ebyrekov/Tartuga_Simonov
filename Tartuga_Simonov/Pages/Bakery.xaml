@@ -10,15 +10,15 @@
       Background="#FFFDD0">
 
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" 
+        </Grid.RowDefinitions>-->
+        <!--<StackPanel Grid.Column="0" 
                     Grid.Row="0"
                     Width="300"
                     Height="200"
@@ -75,6 +75,150 @@
                        Margin="0 0 0 0"
                        FontSize="20" FontWeight="Bold"
                 />
-        </StackPanel>
+        </StackPanel>-->
+        <ListView x:Name="AllPersonalTwo"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    BorderBrush="#FFAA9264"
+                    Background="{x:Null}" 
+                    Foreground="Black"
+                    >
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        BorderBrush="#FFA28A60"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Width="600"
+                        Height="350"
+                        Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!--<Image Grid.Column="0"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Width="100"
+                                    Height="100">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        
+                                    </Binding>
+                                </Image.Source>
+                            </Image>-->
+
+                            <!--<TextBlock Text="Фамилия:"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>-->
+
+                            <TextBlock Text="Цена:"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="0 0 10 0"
+                                       FontSize="20"
+                                       Foreground="#FFA28A60"/>
+
+                            <!--<TextBlock Text="Цена:"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>-->
+
+
+                            <TextBlock Text="{Binding Path = Title}"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock Text="{Binding Path = Cost}"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <!--<TextBlock Text="{Binding Path = Phone}"
+                                        Grid.Column="2"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>-->
+
+                            <!--<TextBlock Text="Логин:"
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="Пароль:"
+                                        Grid.Column="3"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>-->
+
+                            <TextBlock Text="{Binding Path = Login}"
+                                        Grid.Column="4"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="{Binding Path = Password}"
+                                        Grid.Column="4"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

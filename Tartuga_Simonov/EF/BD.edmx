@@ -4,58 +4,124 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Tortuga_SimonovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Tortuga_SimonovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bakery">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Compound" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Calories" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BakeryOrder">
+          <Key>
+            <PropertyRef Name="BakeryID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="BakeryID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="Beverage">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TypeBeverageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeverageOrder">
+          <Key>
+            <PropertyRef Name="BeverageID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="BeverageID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="GenderCode" Type="int" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="PassSeries" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PassNumber" Type="char" MaxLength="6" Nullable="false" />
         </EntityType>
         <EntityType Name="FastFood">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Compound" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Calories" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="FastFoodOrder">
+          <Key>
+            <PropertyRef Name="FFID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="FFID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NameGender" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="BakeryID" Type="int" />
           <Property Name="FastFoodID" Type="int" />
           <Property Name="SaladID" Type="int" />
           <Property Name="BeverageID" Type="int" />
           <Property Name="TableID" Type="int" Nullable="false" />
+          <Property Name="Qry" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Salad">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Compound" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Calories" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="TypeDishID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SaladOrder">
+          <Key>
+            <PropertyRef Name="SaladID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="SaladID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -72,7 +138,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumberTable" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NumberTable" Type="nchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeBeverage">
           <Key>
@@ -88,6 +154,30 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameTypeDish" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <Association Name="FK_BakeryOrder_Bakery">
+          <End Role="Bakery" Type="Self.Bakery" Multiplicity="1" />
+          <End Role="BakeryOrder" Type="Self.BakeryOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bakery">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BakeryOrder">
+              <PropertyRef Name="BakeryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BakeryOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="BakeryOrder" Type="Self.BakeryOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BakeryOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Beverage_TypeBeverage">
           <End Role="TypeBeverage" Type="Self.TypeBeverage" Multiplicity="1" />
           <End Role="Beverage" Type="Self.Beverage" Multiplicity="*" />
@@ -100,51 +190,75 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Bakery">
-          <End Role="Bakery" Type="Self.Bakery" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bakery">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="BakeryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Beverage">
-          <End Role="Beverage" Type="Self.Beverage" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_BeverageOrder_Beverage">
+          <End Role="Beverage" Type="Self.Beverage" Multiplicity="1" />
+          <End Role="BeverageOrder" Type="Self.BeverageOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Beverage">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="BeverageOrder">
               <PropertyRef Name="BeverageID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_FastFood">
-          <End Role="FastFood" Type="Self.FastFood" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_BeverageOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="BeverageOrder" Type="Self.BeverageOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BeverageOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FastFoodOrder_FastFood">
+          <End Role="FastFood" Type="Self.FastFood" Multiplicity="1" />
+          <End Role="FastFoodOrder" Type="Self.FastFoodOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FastFood">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="FastFoodID" />
+            <Dependent Role="FastFoodOrder">
+              <PropertyRef Name="FFID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Salad">
-          <End Role="Salad" Type="Self.Salad" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_FastFoodOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="FastFoodOrder" Type="Self.FastFoodOrder" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Salad">
+            <Principal Role="Order">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="SaladID" />
+            <Dependent Role="FastFoodOrder">
+              <PropertyRef Name="OrderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -169,6 +283,30 @@
             </Principal>
             <Dependent Role="Salad">
               <PropertyRef Name="TypeDishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaladOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="SaladOrder" Type="Self.SaladOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaladOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaladOrder_Salad">
+          <End Role="Salad" Type="Self.Salad" Multiplicity="1" />
+          <End Role="SaladOrder" Type="Self.SaladOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salad">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaladOrder">
+              <PropertyRef Name="SaladID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -205,33 +343,56 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище Tortuga_SimonovModelContainer">
           <EntitySet Name="Bakery" EntityType="Self.Bakery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BakeryOrder" EntityType="Self.BakeryOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Beverage" EntityType="Self.Beverage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeverageOrder" EntityType="Self.BeverageOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FastFood" EntityType="Self.FastFood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FastFoodOrder" EntityType="Self.FastFoodOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salad" EntityType="Self.Salad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaladOrder" EntityType="Self.SaladOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeBeverage" EntityType="Self.TypeBeverage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeDish" EntityType="Self.TypeDish" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BakeryOrder_Bakery" Association="Self.FK_BakeryOrder_Bakery">
+            <End Role="Bakery" EntitySet="Bakery" />
+            <End Role="BakeryOrder" EntitySet="BakeryOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BakeryOrder_Order" Association="Self.FK_BakeryOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="BakeryOrder" EntitySet="BakeryOrder" />
+          </AssociationSet>
           <AssociationSet Name="FK_Beverage_TypeBeverage" Association="Self.FK_Beverage_TypeBeverage">
             <End Role="TypeBeverage" EntitySet="TypeBeverage" />
             <End Role="Beverage" EntitySet="Beverage" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Bakery" Association="Self.FK_Order_Bakery">
-            <End Role="Bakery" EntitySet="Bakery" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Beverage" Association="Self.FK_Order_Beverage">
+          <AssociationSet Name="FK_BeverageOrder_Beverage" Association="Self.FK_BeverageOrder_Beverage">
             <End Role="Beverage" EntitySet="Beverage" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="BeverageOrder" EntitySet="BeverageOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_FastFood" Association="Self.FK_Order_FastFood">
+          <AssociationSet Name="FK_BeverageOrder_Order" Association="Self.FK_BeverageOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="BeverageOrder" EntitySet="BeverageOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Role" Association="Self.FK_Employee_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FastFoodOrder_FastFood" Association="Self.FK_FastFoodOrder_FastFood">
             <End Role="FastFood" EntitySet="FastFood" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="FastFoodOrder" EntitySet="FastFoodOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Salad" Association="Self.FK_Order_Salad">
-            <End Role="Salad" EntitySet="Salad" />
+          <AssociationSet Name="FK_FastFoodOrder_Order" Association="Self.FK_FastFoodOrder_Order">
             <End Role="Order" EntitySet="Order" />
+            <End Role="FastFoodOrder" EntitySet="FastFoodOrder" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Table" Association="Self.FK_Order_Table">
             <End Role="Table" EntitySet="Table" />
@@ -241,231 +402,20 @@
             <End Role="TypeDish" EntitySet="TypeDish" />
             <End Role="Salad" EntitySet="Salad" />
           </AssociationSet>
+          <AssociationSet Name="FK_SaladOrder_Order" Association="Self.FK_SaladOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="SaladOrder" EntitySet="SaladOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaladOrder_Salad" Association="Self.FK_SaladOrder_Salad">
+            <End Role="Salad" EntitySet="Salad" />
+            <End Role="SaladOrder" EntitySet="SaladOrder" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Tortuga_SimonovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Bakery">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Compound" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Calories" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Bakery" FromRole="Bakery" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="Beverage">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="TypeBeverageID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TypeBeverage" Relationship="Self.FK_Beverage_TypeBeverage" FromRole="Beverage" ToRole="TypeBeverage" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Beverage" FromRole="Beverage" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="FastFood">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Compound" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Calories" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_FastFood" FromRole="FastFood" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="Order">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="BakeryID" Type="Int32" />
-          <Property Name="FastFoodID" Type="Int32" />
-          <Property Name="SaladID" Type="Int32" />
-          <Property Name="BeverageID" Type="Int32" />
-          <Property Name="TableID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bakery" Relationship="Self.FK_Order_Bakery" FromRole="Order" ToRole="Bakery" />
-          <NavigationProperty Name="Beverage" Relationship="Self.FK_Order_Beverage" FromRole="Order" ToRole="Beverage" />
-          <NavigationProperty Name="FastFood" Relationship="Self.FK_Order_FastFood" FromRole="Order" ToRole="FastFood" />
-          <NavigationProperty Name="Salad" Relationship="Self.FK_Order_Salad" FromRole="Order" ToRole="Salad" />
-          <NavigationProperty Name="Table" Relationship="Self.FK_Order_Table" FromRole="Order" ToRole="Table" />
-        </EntityType>
-        <EntityType Name="Salad">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Compound" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Calories" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TypeDishID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Salad" FromRole="Salad" ToRole="Order" />
-          <NavigationProperty Name="TypeDish" Relationship="Self.FK_Salad_TypeDish" FromRole="Salad" ToRole="TypeDish" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumberTable" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Table" FromRole="Table" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="TypeBeverage">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameTypeBeverage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Beverage" Relationship="Self.FK_Beverage_TypeBeverage" FromRole="TypeBeverage" ToRole="Beverage" />
-        </EntityType>
-        <EntityType Name="TypeDish">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameTypeDish" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Salad" Relationship="Self.FK_Salad_TypeDish" FromRole="TypeDish" ToRole="Salad" />
-        </EntityType>
-        <Association Name="FK_Order_Bakery">
-          <End Role="Bakery" Type="Self.Bakery" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bakery">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="BakeryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Beverage_TypeBeverage">
-          <End Role="TypeBeverage" Type="Self.TypeBeverage" Multiplicity="1" />
-          <End Role="Beverage" Type="Self.Beverage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeBeverage">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Beverage">
-              <PropertyRef Name="TypeBeverageID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Beverage">
-          <End Role="Beverage" Type="Self.Beverage" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Beverage">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="BeverageID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_FastFood">
-          <End Role="FastFood" Type="Self.FastFood" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FastFood">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="FastFoodID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Salad">
-          <End Role="Salad" Type="Self.Salad" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Salad">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="SaladID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Table">
-          <End Role="Table" Type="Self.Table" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Table">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="TableID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Salad_TypeDish">
-          <End Role="TypeDish" Type="Self.TypeDish" Multiplicity="1" />
-          <End Role="Salad" Type="Self.Salad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeDish">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Salad">
-              <PropertyRef Name="TypeDishID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bakery" EntityType="Self.Bakery" />
-          <EntitySet Name="Beverage" EntityType="Self.Beverage" />
-          <EntitySet Name="FastFood" EntityType="Self.FastFood" />
-          <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="Salad" EntityType="Self.Salad" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Table" EntityType="Self.Table" />
-          <EntitySet Name="TypeBeverage" EntityType="Self.TypeBeverage" />
-          <EntitySet Name="TypeDish" EntityType="Self.TypeDish" />
-          <AssociationSet Name="FK_Order_Bakery" Association="Self.FK_Order_Bakery">
-            <End Role="Bakery" EntitySet="Bakery" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Beverage_TypeBeverage" Association="Self.FK_Beverage_TypeBeverage">
-            <End Role="TypeBeverage" EntitySet="TypeBeverage" />
-            <End Role="Beverage" EntitySet="Beverage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Beverage" Association="Self.FK_Order_Beverage">
-            <End Role="Beverage" EntitySet="Beverage" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_FastFood" Association="Self.FK_Order_FastFood">
-            <End Role="FastFood" EntitySet="FastFood" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Salad" Association="Self.FK_Order_Salad">
-            <End Role="Salad" EntitySet="Salad" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Table" Association="Self.FK_Order_Table">
-            <End Role="Table" EntitySet="Table" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Salad_TypeDish" Association="Self.FK_Salad_TypeDish">
-            <End Role="TypeDish" EntitySet="TypeDish" />
-            <End Role="Salad" EntitySet="Salad" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -496,6 +446,74 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Bakery" EntityType="Tortuga_SimonovModel.Bakery" />
+          <EntitySet Name="BakeryOrder" EntityType="Tortuga_SimonovModel.BakeryOrder" />
+          <EntitySet Name="Beverage" EntityType="Tortuga_SimonovModel.Beverage" />
+          <EntitySet Name="BeverageOrder" EntityType="Tortuga_SimonovModel.BeverageOrder" />
+          <EntitySet Name="Employee" EntityType="Tortuga_SimonovModel.Employee" />
+          <EntitySet Name="FastFood" EntityType="Tortuga_SimonovModel.FastFood" />
+          <EntitySet Name="FastFoodOrder" EntityType="Tortuga_SimonovModel.FastFoodOrder" />
+          <EntitySet Name="Gender" EntityType="Tortuga_SimonovModel.Gender" />
+          <EntitySet Name="Order" EntityType="Tortuga_SimonovModel.Order" />
+          <EntitySet Name="Role" EntityType="Tortuga_SimonovModel.Role" />
+          <EntitySet Name="Salad" EntityType="Tortuga_SimonovModel.Salad" />
+          <EntitySet Name="SaladOrder" EntityType="Tortuga_SimonovModel.SaladOrder" />
+          <EntitySet Name="sysdiagrams" EntityType="Tortuga_SimonovModel.sysdiagrams" />
+          <EntitySet Name="Table" EntityType="Tortuga_SimonovModel.Table" />
+          <EntitySet Name="TypeBeverage" EntityType="Tortuga_SimonovModel.TypeBeverage" />
+          <EntitySet Name="TypeDish" EntityType="Tortuga_SimonovModel.TypeDish" />
+          <AssociationSet Name="FK_BakeryOrder_Bakery" Association="Tortuga_SimonovModel.FK_BakeryOrder_Bakery">
+            <End Role="Bakery" EntitySet="Bakery" />
+            <End Role="BakeryOrder" EntitySet="BakeryOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BakeryOrder_Order" Association="Tortuga_SimonovModel.FK_BakeryOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="BakeryOrder" EntitySet="BakeryOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Beverage_TypeBeverage" Association="Tortuga_SimonovModel.FK_Beverage_TypeBeverage">
+            <End Role="TypeBeverage" EntitySet="TypeBeverage" />
+            <End Role="Beverage" EntitySet="Beverage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BeverageOrder_Beverage" Association="Tortuga_SimonovModel.FK_BeverageOrder_Beverage">
+            <End Role="Beverage" EntitySet="Beverage" />
+            <End Role="BeverageOrder" EntitySet="BeverageOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BeverageOrder_Order" Association="Tortuga_SimonovModel.FK_BeverageOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="BeverageOrder" EntitySet="BeverageOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Gender" Association="Tortuga_SimonovModel.FK_Employee_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Role" Association="Tortuga_SimonovModel.FK_Employee_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FastFoodOrder_FastFood" Association="Tortuga_SimonovModel.FK_FastFoodOrder_FastFood">
+            <End Role="FastFood" EntitySet="FastFood" />
+            <End Role="FastFoodOrder" EntitySet="FastFoodOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FastFoodOrder_Order" Association="Tortuga_SimonovModel.FK_FastFoodOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="FastFoodOrder" EntitySet="FastFoodOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Table" Association="Tortuga_SimonovModel.FK_Order_Table">
+            <End Role="Table" EntitySet="Table" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaladOrder_Order" Association="Tortuga_SimonovModel.FK_SaladOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="SaladOrder" EntitySet="SaladOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salad_TypeDish" Association="Tortuga_SimonovModel.FK_Salad_TypeDish">
+            <End Role="TypeDish" EntitySet="TypeDish" />
+            <End Role="Salad" EntitySet="Salad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaladOrder_Salad" Association="Tortuga_SimonovModel.FK_SaladOrder_Salad">
+            <End Role="Salad" EntitySet="Salad" />
+            <End Role="SaladOrder" EntitySet="SaladOrder" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -508,104 +526,343 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Bakery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Compound" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Calories" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BakeryOrder" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Bakery" FromRole="Bakery" ToRole="BakeryOrder" />
+        </EntityType>
+        <EntityType Name="BakeryOrder">
+          <Key>
+            <PropertyRef Name="BakeryID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="BakeryID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Bakery" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Bakery" FromRole="BakeryOrder" ToRole="Bakery" />
+          <NavigationProperty Name="Order" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Order" FromRole="BakeryOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Beverage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="TypeBeverageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeBeverage" Relationship="Tortuga_SimonovModel.FK_Beverage_TypeBeverage" FromRole="Beverage" ToRole="TypeBeverage" />
+          <NavigationProperty Name="BeverageOrder" Relationship="Tortuga_SimonovModel.FK_BeverageOrder_Beverage" FromRole="Beverage" ToRole="BeverageOrder" />
+        </EntityType>
+        <EntityType Name="BeverageOrder">
+          <Key>
+            <PropertyRef Name="BeverageID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="BeverageID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Beverage" Relationship="Tortuga_SimonovModel.FK_BeverageOrder_Beverage" FromRole="BeverageOrder" ToRole="Beverage" />
+          <NavigationProperty Name="Order" Relationship="Tortuga_SimonovModel.FK_BeverageOrder_Order" FromRole="BeverageOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="PassSeries" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="PassNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Gender" Relationship="Tortuga_SimonovModel.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
+          <NavigationProperty Name="Role" Relationship="Tortuga_SimonovModel.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="FastFood">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Compound" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Calories" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="FastFoodOrder" Relationship="Tortuga_SimonovModel.FK_FastFoodOrder_FastFood" FromRole="FastFood" ToRole="FastFoodOrder" />
+        </EntityType>
+        <EntityType Name="FastFoodOrder">
+          <Key>
+            <PropertyRef Name="FFID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="FFID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="FastFood" Relationship="Tortuga_SimonovModel.FK_FastFoodOrder_FastFood" FromRole="FastFoodOrder" ToRole="FastFood" />
+          <NavigationProperty Name="Order" Relationship="Tortuga_SimonovModel.FK_FastFoodOrder_Order" FromRole="FastFoodOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NameGender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Tortuga_SimonovModel.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="BakeryID" Type="Int32" />
+          <Property Name="FastFoodID" Type="Int32" />
+          <Property Name="SaladID" Type="Int32" />
+          <Property Name="BeverageID" Type="Int32" />
+          <Property Name="TableID" Type="Int32" Nullable="false" />
+          <Property Name="Qry" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BakeryOrder" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Order" FromRole="Order" ToRole="BakeryOrder" />
+          <NavigationProperty Name="BeverageOrder" Relationship="Tortuga_SimonovModel.FK_BeverageOrder_Order" FromRole="Order" ToRole="BeverageOrder" />
+          <NavigationProperty Name="FastFoodOrder" Relationship="Tortuga_SimonovModel.FK_FastFoodOrder_Order" FromRole="Order" ToRole="FastFoodOrder" />
+          <NavigationProperty Name="Table" Relationship="Tortuga_SimonovModel.FK_Order_Table" FromRole="Order" ToRole="Table" />
+          <NavigationProperty Name="SaladOrder" Relationship="Tortuga_SimonovModel.FK_SaladOrder_Order" FromRole="Order" ToRole="SaladOrder" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Tortuga_SimonovModel.FK_Employee_Role" FromRole="Role" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Salad">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Compound" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Calories" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TypeDishID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeDish" Relationship="Tortuga_SimonovModel.FK_Salad_TypeDish" FromRole="Salad" ToRole="TypeDish" />
+          <NavigationProperty Name="SaladOrder" Relationship="Tortuga_SimonovModel.FK_SaladOrder_Salad" FromRole="Salad" ToRole="SaladOrder" />
+        </EntityType>
+        <EntityType Name="SaladOrder">
+          <Key>
+            <PropertyRef Name="SaladID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="SaladID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Order" Relationship="Tortuga_SimonovModel.FK_SaladOrder_Order" FromRole="SaladOrder" ToRole="Order" />
+          <NavigationProperty Name="Salad" Relationship="Tortuga_SimonovModel.FK_SaladOrder_Salad" FromRole="SaladOrder" ToRole="Salad" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberTable" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="Tortuga_SimonovModel.FK_Order_Table" FromRole="Table" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="TypeBeverage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeBeverage" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Beverage" Relationship="Tortuga_SimonovModel.FK_Beverage_TypeBeverage" FromRole="TypeBeverage" ToRole="Beverage" />
+        </EntityType>
+        <EntityType Name="TypeDish">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeDish" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Salad" Relationship="Tortuga_SimonovModel.FK_Salad_TypeDish" FromRole="TypeDish" ToRole="Salad" />
+        </EntityType>
+        <Association Name="FK_BakeryOrder_Bakery">
+          <End Type="Tortuga_SimonovModel.Bakery" Role="Bakery" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.BakeryOrder" Role="BakeryOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bakery">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BakeryOrder">
+              <PropertyRef Name="BakeryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BakeryOrder_Order">
+          <End Type="Tortuga_SimonovModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.BakeryOrder" Role="BakeryOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BakeryOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Beverage_TypeBeverage">
+          <End Type="Tortuga_SimonovModel.TypeBeverage" Role="TypeBeverage" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.Beverage" Role="Beverage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeBeverage">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Beverage">
+              <PropertyRef Name="TypeBeverageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BeverageOrder_Beverage">
+          <End Type="Tortuga_SimonovModel.Beverage" Role="Beverage" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.BeverageOrder" Role="BeverageOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beverage">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BeverageOrder">
+              <PropertyRef Name="BeverageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BeverageOrder_Order">
+          <End Type="Tortuga_SimonovModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.BeverageOrder" Role="BeverageOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BeverageOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Gender">
+          <End Type="Tortuga_SimonovModel.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="Tortuga_SimonovModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Role">
+          <End Type="Tortuga_SimonovModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="Tortuga_SimonovModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FastFoodOrder_FastFood">
+          <End Type="Tortuga_SimonovModel.FastFood" Role="FastFood" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.FastFoodOrder" Role="FastFoodOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FastFood">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FastFoodOrder">
+              <PropertyRef Name="FFID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FastFoodOrder_Order">
+          <End Type="Tortuga_SimonovModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.FastFoodOrder" Role="FastFoodOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FastFoodOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Table">
+          <End Type="Tortuga_SimonovModel.Table" Role="Table" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaladOrder_Order">
+          <End Type="Tortuga_SimonovModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.SaladOrder" Role="SaladOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaladOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salad_TypeDish">
+          <End Type="Tortuga_SimonovModel.TypeDish" Role="TypeDish" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.Salad" Role="Salad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDish">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Salad">
+              <PropertyRef Name="TypeDishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaladOrder_Salad">
+          <End Type="Tortuga_SimonovModel.Salad" Role="Salad" Multiplicity="1" />
+          <End Type="Tortuga_SimonovModel.SaladOrder" Role="SaladOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salad">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaladOrder">
+              <PropertyRef Name="SaladID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище Tortuga_SimonovModelContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Bakery">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Bakery">
-              <MappingFragment StoreEntitySet="Bakery">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Compound" ColumnName="Compound" />
-                <ScalarProperty Name="Calories" ColumnName="Calories" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Beverage">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Beverage">
-              <MappingFragment StoreEntitySet="Beverage">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="TypeBeverageID" ColumnName="TypeBeverageID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FastFood">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.FastFood">
-              <MappingFragment StoreEntitySet="FastFood">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Compound" ColumnName="Compound" />
-                <ScalarProperty Name="Calories" ColumnName="Calories" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
-                <ScalarProperty Name="BakeryID" ColumnName="BakeryID" />
-                <ScalarProperty Name="FastFoodID" ColumnName="FastFoodID" />
-                <ScalarProperty Name="SaladID" ColumnName="SaladID" />
-                <ScalarProperty Name="BeverageID" ColumnName="BeverageID" />
-                <ScalarProperty Name="TableID" ColumnName="TableID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Salad">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Salad">
-              <MappingFragment StoreEntitySet="Salad">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Compound" ColumnName="Compound" />
-                <ScalarProperty Name="Calories" ColumnName="Calories" />
-                <ScalarProperty Name="TypeDishID" ColumnName="TypeDishID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NumberTable" ColumnName="NumberTable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeBeverage">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.TypeBeverage">
-              <MappingFragment StoreEntitySet="TypeBeverage">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NameTypeBeverage" ColumnName="NameTypeBeverage" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeDish">
-            <EntityTypeMapping TypeName="Tortuga_SimonovModel.TypeDish">
-              <MappingFragment StoreEntitySet="TypeDish">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NameTypeDish" ColumnName="NameTypeDish" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Tortuga_SimonovModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Tortuga_SimonovModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Tortuga_SimonovModel.sp_dropdiagram" />
@@ -630,6 +887,167 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Tortuga_SimonovModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Tortuga_SimonovModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Bakery">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Bakery">
+              <MappingFragment StoreEntitySet="Bakery">
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="Compound" ColumnName="Compound" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BakeryOrder">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.BakeryOrder">
+              <MappingFragment StoreEntitySet="BakeryOrder">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="BakeryID" ColumnName="BakeryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Beverage">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Beverage">
+              <MappingFragment StoreEntitySet="Beverage">
+                <ScalarProperty Name="TypeBeverageID" ColumnName="TypeBeverageID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeverageOrder">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.BeverageOrder">
+              <MappingFragment StoreEntitySet="BeverageOrder">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="BeverageID" ColumnName="BeverageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="PassNumber" ColumnName="PassNumber" />
+                <ScalarProperty Name="PassSeries" ColumnName="PassSeries" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FastFood">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.FastFood">
+              <MappingFragment StoreEntitySet="FastFood">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="Compound" ColumnName="Compound" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FastFoodOrder">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.FastFoodOrder">
+              <MappingFragment StoreEntitySet="FastFoodOrder">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="FFID" ColumnName="FFID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="NameGender" ColumnName="NameGender" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Qry" ColumnName="Qry" />
+                <ScalarProperty Name="TableID" ColumnName="TableID" />
+                <ScalarProperty Name="BeverageID" ColumnName="BeverageID" />
+                <ScalarProperty Name="SaladID" ColumnName="SaladID" />
+                <ScalarProperty Name="FastFoodID" ColumnName="FastFoodID" />
+                <ScalarProperty Name="BakeryID" ColumnName="BakeryID" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salad">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Salad">
+              <MappingFragment StoreEntitySet="Salad">
+                <ScalarProperty Name="TypeDishID" ColumnName="TypeDishID" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="Compound" ColumnName="Compound" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaladOrder">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.SaladOrder">
+              <MappingFragment StoreEntitySet="SaladOrder">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="SaladID" ColumnName="SaladID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="NumberTable" ColumnName="NumberTable" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeBeverage">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.TypeBeverage">
+              <MappingFragment StoreEntitySet="TypeBeverage">
+                <ScalarProperty Name="NameTypeBeverage" ColumnName="NameTypeBeverage" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeDish">
+            <EntityTypeMapping TypeName="Tortuga_SimonovModel.TypeDish">
+              <MappingFragment StoreEntitySet="TypeDish">
+                <ScalarProperty Name="NameTypeDish" ColumnName="NameTypeDish" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

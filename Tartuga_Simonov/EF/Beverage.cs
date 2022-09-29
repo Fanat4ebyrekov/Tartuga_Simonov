@@ -17,7 +17,7 @@ namespace Tartuga_Simonov.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Beverage()
         {
-            this.Order = new HashSet<Order>();
+            this.BeverageOrder = new HashSet<BeverageOrder>();
         }
     
         public int ID { get; set; }
@@ -27,6 +27,6 @@ namespace Tartuga_Simonov.EF
     
         public virtual TypeBeverage TypeBeverage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<BeverageOrder> BeverageOrder { get; set; }
     }
 }

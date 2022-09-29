@@ -88,7 +88,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Clases\Entity.cs" />
     <Compile Include="EF\Bakery.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BakeryOrder.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\BD.Context.cs">
@@ -109,13 +113,31 @@
     <Compile Include="EF\Beverage.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\BeverageOrder.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Employee.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\FastFood.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\FastFoodOrder.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Gender.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Order.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Role.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Salad.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SaladOrder.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">

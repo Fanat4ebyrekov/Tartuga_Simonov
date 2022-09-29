@@ -5,22 +5,35 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cb34c00f28bb4e7a94e6a103a09f1784" Name="Diagram1">
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Bakery" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Beverage" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.FastFood" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Salad" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Table" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeBeverage" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeDish" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Bakery" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Beverage_TypeBeverage" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Beverage" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_FastFood" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Salad" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Table" ManuallyRouted="false" />
-        <AssociationConnector Association="Tortuga_SimonovModel.FK_Salad_TypeDish" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Bakery" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.BakeryOrder" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Beverage" Width="1.5" PointX="3" PointY="10.75" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.BeverageOrder" Width="1.5" PointX="5.25" PointY="6.875" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Employee" Width="1.5" PointX="11" PointY="2.375" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.FastFood" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.FastFoodOrder" Width="1.5" PointX="8.25" PointY="6.875" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Gender" Width="1.5" PointX="8.75" PointY="10.25" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Order" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Role" Width="1.5" PointX="8.75" PointY="3.25" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Salad" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.SaladOrder" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="7.125" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Table" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeBeverage" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.TypeDish" Width="1.5" PointX="0.75" PointY="15" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_BakeryOrder_Bakery" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_BakeryOrder_Order" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Beverage_TypeBeverage" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_BeverageOrder_Beverage" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_BeverageOrder_Order" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Employee_Gender" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Employee_Role" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_FastFoodOrder_FastFood" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_FastFoodOrder_Order" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Order_Table" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_SaladOrder_Order" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_Salad_TypeDish" />
+        <AssociationConnector Association="Tortuga_SimonovModel.FK_SaladOrder_Salad" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
