@@ -1,0 +1,83 @@
+﻿<Window x:Class="Tartuga_Simonov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tartuga_Simonov"
+        mc:Ignorable="d"
+        Height="834" Width="1194"
+        Background="White"
+        Opacity="20"
+        WindowState="Minimized"
+        >
+
+    <Grid 
+          >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="121"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="184"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.RowSpan="2"
+                    Background="#4C2F27"
+                    >
+            <Button Margin="0 220 0 0"
+                       Content="Выпечка"
+                       Background="{x:Null}"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       Click="Bakery_Click"
+                       FontStyle="Italic"
+                       x:Name="Bakery" 
+                       BorderBrush="{x:Null}"
+                    
+                       />
+            <Button    Margin="0 30 0 0"
+                       Content="Напитки"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       FontStyle="Italic"
+                       Background="{x:Null}"
+                       BorderBrush="{x:Null}"
+                       x:Name="Berevage"
+                       Click="Berevage_Click"
+                />
+            <TextBlock Margin="0 30 0 0"
+                       Text="Фастфуд"
+                       TextAlignment="Center"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
+                />
+            <TextBlock Margin="0 30 0 0"
+                       Text="Салаты"
+                       TextAlignment="Center"
+                       FontSize="36" 
+                       Foreground="#FFF5EBEB" 
+                       TextDecorations="Underline" 
+                       FontStyle="Italic"
+                />
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2"
+                    Background="#4C2F27">
+            <StackPanel.Effect>
+                <DropShadowEffect/>
+            </StackPanel.Effect>
+
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Background="#FFFDD0"
+              x:Name="PageWindow">
+            <Frame x:Name="MainFrame"
+                   NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+       
+    </Grid>
+
+</Window>
