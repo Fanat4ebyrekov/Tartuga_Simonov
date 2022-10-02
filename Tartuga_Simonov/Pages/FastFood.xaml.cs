@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tartuga_Simonov.EF;
+using static Tartuga_Simonov.Clases.Entity;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -23,6 +25,8 @@ namespace Tartuga_Simonov.Pages
         public FastFood()
         {
             InitializeComponent();
+
+            FastFoodMenu.ItemsSource = context.FastFood.ToList();
         }
     }
 }

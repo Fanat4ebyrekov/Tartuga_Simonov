@@ -37,5 +37,15 @@ namespace Tartuga_Simonov
         {
             MainFrame.Navigate(new Beverage());
         }
+
+        private void Salad_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Salad());
+        }
+
+        private void FastFood_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new FastFood());
+        }
     }
 }

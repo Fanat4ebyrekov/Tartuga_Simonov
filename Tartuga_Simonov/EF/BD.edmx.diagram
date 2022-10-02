@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cb34c00f28bb4e7a94e6a103a09f1784" Name="Diagram1">
-        <EntityTypeShape EntityType="Tortuga_SimonovModel.Bakery" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="Tortuga_SimonovModel.Bakery" Width="1.5" PointX="3" PointY="2.625" />
         <EntityTypeShape EntityType="Tortuga_SimonovModel.BakeryOrder" Width="1.5" PointX="5.25" PointY="3.875" />
         <EntityTypeShape EntityType="Tortuga_SimonovModel.Beverage" Width="1.5" PointX="3" PointY="10.75" />
         <EntityTypeShape EntityType="Tortuga_SimonovModel.BeverageOrder" Width="1.5" PointX="5.25" PointY="6.875" />

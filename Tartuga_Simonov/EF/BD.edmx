@@ -14,6 +14,7 @@
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Compound" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Calories" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Image" Type="image" />
         </EntityType>
         <EntityType Name="BakeryOrder">
           <Key>
@@ -514,7 +515,7 @@
             <End Role="Salad" EntitySet="Salad" />
             <End Role="SaladOrder" EntitySet="SaladOrder" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -535,6 +536,7 @@
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Compound" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Calories" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="BakeryOrder" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Bakery" FromRole="Bakery" ToRole="BakeryOrder" />
         </EntityType>
         <EntityType Name="BakeryOrder">
@@ -857,7 +859,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -890,6 +892,7 @@
           <EntitySetMapping Name="Bakery">
             <EntityTypeMapping TypeName="Tortuga_SimonovModel.Bakery">
               <MappingFragment StoreEntitySet="Bakery">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Calories" ColumnName="Calories" />
                 <ScalarProperty Name="Compound" ColumnName="Compound" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
@@ -1048,7 +1051,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

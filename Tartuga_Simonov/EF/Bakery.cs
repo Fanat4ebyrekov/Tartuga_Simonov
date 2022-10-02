@@ -25,6 +25,7 @@ namespace Tartuga_Simonov.EF
         public decimal Cost { get; set; }
         public string Compound { get; set; }
         public string Calories { get; set; }
+        public byte[] Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BakeryOrder> BakeryOrder { get; set; }

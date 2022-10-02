@@ -5,10 +5,84 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Tartuga_Simonov.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Salad">
+      d:DesignHeight="450" d:DesignWidth="1010"
+      Title="Salad"
+      Background="#FFFDD0">
 
     <Grid>
-        
+
+        <ListView x:Name="SaladMenu"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    BorderBrush="#FFAA9264"
+                    Background="{x:Null}" 
+                    Foreground="Black"
+                    >
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        BorderBrush="#FFA28A60"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Width="600"
+                        Height="350"
+                        Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock Text="Цена:"
+                                       Grid.Column="0"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="0 0 10 0"
+                                       FontSize="20"
+                                       Foreground="#FFA28A60"/>
+
+
+                            <TextBlock Text="{Binding Path = Title}"
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="75 0 0 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"
+                                        TextWrapping="Wrap"
+                                       />
+
+                            <TextBlock Text="{Binding Path = Cost}"
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Page>
