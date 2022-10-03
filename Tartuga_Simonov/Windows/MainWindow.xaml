@@ -67,7 +67,16 @@
                 />
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2"
-                    Background="#4C2F27">
+                    Background="#4C2F27"
+                    >
+            <TextBlock Text="Tortuga"
+                       FontSize="80"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontWeight="Normal" 
+                       FontStyle="Italic" 
+                />
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>

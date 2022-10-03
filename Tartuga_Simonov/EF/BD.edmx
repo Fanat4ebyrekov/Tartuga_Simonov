@@ -14,7 +14,7 @@
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Compound" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Calories" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Image" Type="image" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BakeryOrder">
           <Key>
@@ -536,7 +536,7 @@
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Compound" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Calories" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BakeryOrder" Relationship="Tortuga_SimonovModel.FK_BakeryOrder_Bakery" FromRole="Bakery" ToRole="BakeryOrder" />
         </EntityType>
         <EntityType Name="BakeryOrder">
