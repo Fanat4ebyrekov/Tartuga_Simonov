@@ -15,7 +15,7 @@
                     BorderBrush="#FFAA9264"
                     Background="{x:Null}" 
                     Foreground="Black"
-                    >
+                    KeyUp="FastFoodMenu_KeyUp">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

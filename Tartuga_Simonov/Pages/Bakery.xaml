@@ -13,6 +13,7 @@
        
         <ListView x:Name="BakeryMenu"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    
                     BorderBrush="#FFAA9264"
                     Background="{x:Null}" 
                     Foreground="Black"
@@ -29,7 +30,7 @@
                         BorderBrush="#FFA28A60"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Width="600"
+                        Width="580"
                         Height="350"
                         Margin="10"
                         Visibility="Visible"

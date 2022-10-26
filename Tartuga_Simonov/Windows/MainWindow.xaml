@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:Tartuga_Simonov"
         mc:Ignorable="d"
         Height="834" Width="1194"
-        Background="White"
+        Background="{x:Null}"
         Opacity="20"
         WindowState="Minimized"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
         >
 
     <Grid 
@@ -85,7 +89,9 @@
         <Grid Grid.Row="1"
               Grid.Column="1"
               Background="#FFFDD0"
-              x:Name="PageWindow">
+              x:Name="PageWindow"
+              Width="1009"
+              Height="709">
             <Frame x:Name="MainFrame"
                    NavigationUIVisibility="Hidden"/>
 

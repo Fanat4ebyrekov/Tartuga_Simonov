@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tartuga_Simonov.EF;
 using static Tartuga_Simonov.Clases.Entity;
+using Tartuga_Simonov.Windows;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -27,6 +28,24 @@ namespace Tartuga_Simonov.Pages
             InitializeComponent();
 
             SaladMenu.ItemsSource = context.Salad.ToList();
+        }
+
+        private void SaladMenu_KeyUp(object sender, KeyEventArgs e)
+        {
+            var resClick = MessageBox.Show($"Добавить заказ {(SaladMenu.SelectedItem as EF.Salad).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+
+            if (resClick == MessageBoxResult.Yes)
+            {
+                EF.Salad userEdit = SaladMenu.SelectedItem as EF.Salad;
+
+
+                OrderWindow addOrder = new OrderWindow(userEdit);
+
+                addOrder.ShowDialog();
+
+
+            }
         }
     }
 }

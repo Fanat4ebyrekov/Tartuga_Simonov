@@ -24,7 +24,15 @@ namespace Tartuga_Simonov.Windows
         //Bakery bakery = new Bakery();
         //Beverage beverage = new Beverage();
         EF.Bakery OrderBakery = new EF.Bakery();
+
+        EF.Beverage OrderBeverage = new EF.Beverage();
+
+        EF.FastFood Orderfastfood = new EF.FastFood();
+
+        EF.Salad Ordersalad = new EF.Salad();
+
         bool isEdit = true;
+
 
         public OrderWindow()
         {
@@ -40,6 +48,30 @@ namespace Tartuga_Simonov.Windows
             CostBL.Text = Convert.ToString(bakery.Cost);
             OrderBakery = bakery;
             isEdit = true;
+        }
+
+        public OrderWindow(EF.Beverage beverage)
+        {
+            InitializeComponent();
+            NameBL.Text = beverage.Title;
+            CostBL.Text = Convert.ToString(beverage.Cost);
+            OrderBeverage = beverage;
+        }
+
+        public OrderWindow(EF.FastFood fastFood)
+        {
+            InitializeComponent();
+            NameBL.Text = fastFood.Title;
+            CostBL.Text = Convert.ToString(fastFood.Cost);
+            Orderfastfood = fastFood;
+        }
+
+        public OrderWindow(EF.Salad salad)
+        {
+            InitializeComponent();
+            NameBL.Text = salad.Title;
+            CostBL.Text = Convert.ToString(salad.Cost);
+            Ordersalad = salad;
         }
     }
 }

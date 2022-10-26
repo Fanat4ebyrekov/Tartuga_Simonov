@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tartuga_Simonov.EF;
 using static Tartuga_Simonov.Clases.Entity;
+using Tartuga_Simonov.Windows;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -22,11 +23,36 @@ namespace Tartuga_Simonov.Pages
     /// </summary>
     public partial class Beverage : Page
     {
+
+        
+        
         public Beverage()
         {
             InitializeComponent();
 
+            Beverage.ItemsSource = context.Beverage.ToList();
+
             BeverageMenu.ItemsSource = context.Beverage.ToList();
+        }
+
+        private void BeverageMenu_KeyUp(object sender, KeyEventArgs e)
+        {
+            var resClick = MessageBox.Show($"Добавить заказ {(BeverageMenu.SelectedItem as EF.Beverage).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+
+            if (resClick == MessageBoxResult.Yes)
+            {
+                var button = sender as Button;
+
+                if (button == null)
+                    return;
+
+                var dish = button.DataContext as Dish;
+
+                addOrder.ShowDialog();
+
+
+            }
         }
     }
 }
