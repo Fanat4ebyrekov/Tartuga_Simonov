@@ -10,14 +10,19 @@
       Background="#FFFDD0">
 
     <Grid>
-       
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="981*"/>
+            <ColumnDefinition Width="29*"/>
+        </Grid.ColumnDefinitions>
+
         <ListView x:Name="BakeryMenu"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     
                     BorderBrush="#FFAA9264"
                     Background="{x:Null}" 
-                    Foreground="Black"
-                    KeyUp="BakeryMenu_KeyUp">
+                    Foreground="Black" 
+                  Grid.ColumnSpan="2" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -52,7 +57,6 @@
                             <TextBlock Text="Цена:"
                                        Grid.Column="0"
                                        Grid.Row="1"
-                                       
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Margin="0 0 10 0"
@@ -83,7 +87,14 @@
                                         Foreground="#FFA28A60"
                                         x:Name="tbCost"/>
 
-                            
+                            <Button x:Name="btnAdd"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    Width="150"
+                                    Height="50"
+                                    Content="Добавить в корзину"
+                                    Click="btnAdd_Click"
+                                />
 
                         </Grid>
                     </Border>

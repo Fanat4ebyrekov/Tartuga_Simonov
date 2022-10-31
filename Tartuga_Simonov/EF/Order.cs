@@ -17,29 +17,16 @@ namespace Tartuga_Simonov.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.BakeryOrder = new HashSet<BakeryOrder>();
-            this.BeverageOrder = new HashSet<BeverageOrder>();
-            this.FastFoodOrder = new HashSet<FastFoodOrder>();
-            this.SaladOrder = new HashSet<SaladOrder>();
+            this.OrderDish = new HashSet<OrderDish>();
         }
     
-        public int ID { get; set; }
-        public decimal TotalCost { get; set; }
-        public Nullable<int> BakeryID { get; set; }
-        public Nullable<int> FastFoodID { get; set; }
-        public Nullable<int> SaladID { get; set; }
-        public Nullable<int> BeverageID { get; set; }
-        public int TableID { get; set; }
-        public string Qry { get; set; }
+        public int IdOrder { get; set; }
+        public int IdTable { get; set; }
+        public System.DateTime DateOrder { get; set; }
+        public decimal FinishCost { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BakeryOrder> BakeryOrder { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BeverageOrder> BeverageOrder { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FastFoodOrder> FastFoodOrder { get; set; }
         public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SaladOrder> SaladOrder { get; set; }
+        public virtual ICollection<OrderDish> OrderDish { get; set; }
     }
 }

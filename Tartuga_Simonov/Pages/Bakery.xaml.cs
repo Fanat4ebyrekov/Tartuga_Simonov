@@ -18,6 +18,8 @@ using static Tartuga_Simonov.Clases.Entity;
 using System.Collections;
 using System.Drawing;
 using Tartuga_Simonov.Windows;
+using static Tartuga_Simonov.Clases.ListDish;
+using Tartuga_Simonov.Clases;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -26,41 +28,26 @@ namespace Tartuga_Simonov.Pages
     /// </summary>
     public partial class Bakery : Page
     {
-        //Bakery bakery = new Bakery();
-        bool isAdd = true;
-        List<EF.Bakery> listEmployee = new List<EF.Bakery>();
+        
         public Bakery()
         {
+
             InitializeComponent();
-            BakeryMenu.ItemsSource = context.Bakery.ToList();
-            isAdd = false;
-            
+            BakeryMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 1).ToList();
+                        
         }
 
-        //private void Filter()
-        //{
-        //    listEmployee = context.Bakery.ToList();
-        //    listEmployee = listEmployee.Where(e => e.Title.Contains(tbTitle.Text) || e.Cost.Contains(tbCost.Text).ToList());
-
-
-        //    BakeryMenu.ItemsSource = listEmployee;
-        //}
-
-        private void BakeryMenu_KeyUp(object sender, KeyEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(BakeryMenu.SelectedItem as EF.Bakery).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+            var button = sender as Button;
+            if (button == null)
+                return;
+            var dishes = button.DataContext as Dish;
+
+            ListDish.dishes.Add(BakeryMenu.SelectedItem as Dish);
 
 
-            if (resClick == MessageBoxResult.Yes)
-            {
-                EF.Bakery userEdit = BakeryMenu.SelectedItem as EF.Bakery;
-
-                OrderWindow addOrder = new OrderWindow(userEdit);
-                
-                addOrder.ShowDialog();
-                
-
-            }
         }
     }      
 }

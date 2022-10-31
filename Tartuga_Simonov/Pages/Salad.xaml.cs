@@ -27,20 +27,18 @@ namespace Tartuga_Simonov.Pages
         {
             InitializeComponent();
 
-            SaladMenu.ItemsSource = context.Salad.ToList();
+            SaladMenu.ItemsSource = context.Dish.ToList();
         }
 
         private void SaladMenu_KeyUp(object sender, KeyEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(SaladMenu.SelectedItem as EF.Salad).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var resClick = MessageBox.Show($"Добавить заказ {(SaladMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
 
             if (resClick == MessageBoxResult.Yes)
             {
-                EF.Salad userEdit = SaladMenu.SelectedItem as EF.Salad;
 
-
-                OrderWindow addOrder = new OrderWindow(userEdit);
+                OrderWindow addOrder = new OrderWindow();
 
                 addOrder.ShowDialog();
 

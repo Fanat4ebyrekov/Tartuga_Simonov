@@ -12,18 +12,24 @@ namespace Tartuga_Simonov.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeBeverage
+    public partial class Dish
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypeBeverage()
+        public Dish()
         {
-            this.Beverage = new HashSet<Beverage>();
+            this.OrderDish = new HashSet<OrderDish>();
         }
     
-        public int ID { get; set; }
-        public string NameTypeBeverage { get; set; }
+        public int IdDish { get; set; }
+        public string Title { get; set; }
+        public decimal Cost { get; set; }
+        public Nullable<double> Weight { get; set; }
+        public string Description { get; set; }
+        public int IdCategory { get; set; }
+        public string ImagePath { get; set; }
     
+        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Beverage> Beverage { get; set; }
+        public virtual ICollection<OrderDish> OrderDish { get; set; }
     }
 }

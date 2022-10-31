@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tartuga_Simonov.EF;
 using Tartuga_Simonov.Pages;
+using Tartuga_Simonov.Windows;
+using static Tartuga_Simonov.Clases.ListDish;
 
 namespace Tartuga_Simonov
 {
@@ -46,6 +49,19 @@ namespace Tartuga_Simonov
         private void FastFood_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new FastFood());
+        }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.Hide();
+            OrderWindow orders = new OrderWindow();
+            orders.ShowDialog();
+            this.Close();
+
+            MessageBox.Show(dishes.Count.ToString());
+
+
         }
     }
 }

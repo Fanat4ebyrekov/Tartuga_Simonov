@@ -37,7 +37,6 @@
                        FontStyle="Italic"
                        x:Name="Bakery" 
                        BorderBrush="{x:Null}"
-                    
                        />
             <Button    Margin="0 30 0 0"
                        Content="Напитки"
@@ -69,6 +68,11 @@
                        x:Name="Salad"
                        Click="Salad_Click"
                 />
+            <Button Height="50"
+                    Margin="0 30 0 0"
+                    x:Name="btnOrder"
+                    Click="btnOrder_Click"
+                />
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2"
                     Background="#4C2F27"
@@ -84,6 +88,8 @@
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>
+
+            
 
         </StackPanel>
         <Grid Grid.Row="1"

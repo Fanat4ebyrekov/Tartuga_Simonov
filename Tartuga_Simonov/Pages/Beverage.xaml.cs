@@ -30,14 +30,14 @@ namespace Tartuga_Simonov.Pages
         {
             InitializeComponent();
 
-            Beverage.ItemsSource = context.Beverage.ToList();
+            
 
-            BeverageMenu.ItemsSource = context.Beverage.ToList();
+            BeverageMenu.ItemsSource = context.Dish.ToList();
         }
 
         private void BeverageMenu_KeyUp(object sender, KeyEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(BeverageMenu.SelectedItem as EF.Beverage).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var resClick = MessageBox.Show($"Добавить заказ {(BeverageMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
 
             if (resClick == MessageBoxResult.Yes)
@@ -49,7 +49,7 @@ namespace Tartuga_Simonov.Pages
 
                 var dish = button.DataContext as Dish;
 
-                addOrder.ShowDialog();
+                
 
 
             }

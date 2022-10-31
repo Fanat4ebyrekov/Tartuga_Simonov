@@ -17,12 +17,15 @@ namespace Tartuga_Simonov.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Table()
         {
+            this.Booking = new HashSet<Booking>();
             this.Order = new HashSet<Order>();
         }
     
-        public int ID { get; set; }
-        public string NumberTable { get; set; }
+        public int IdTable { get; set; }
+        public int TableNum { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Booking { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
     }

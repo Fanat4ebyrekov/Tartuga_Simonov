@@ -12,13 +12,14 @@ namespace Tartuga_Simonov.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class SaladOrder
+    public partial class OrderDish
     {
-        public int SaladID { get; set; }
-        public int OrderID { get; set; }
-        public string Qty { get; set; }
+        public int IdOrderDish { get; set; }
+        public int IdOrder { get; set; }
+        public int IdDish { get; set; }
+        public int Qty { get; set; }
     
+        public virtual Dish Dish { get; set; }
         public virtual Order Order { get; set; }
-        public virtual Salad Salad { get; set; }
     }
 }

@@ -5,20 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tartuga_Simonov.Windows"
         mc:Ignorable="d"
-        Title="Order" Height="450" Width="450">
+        Title="Order" Height="900" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#FFFDD0">
     <Grid>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.ColumnSpan="3"
@@ -26,52 +21,73 @@
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>
-            <TextBlock Margin="10"
+            <TextBlock Margin="50"
                        Text="Заказ"
                        TextAlignment="Center"
-                       FontSize="30"
-                       Width="100"
+                       FontSize="50"
+                       Width="150"
                        Foreground="White"
                        
                 />
         </StackPanel>
 
-        <Grid Grid.Row="1"
-            Grid.RowSpan="3"
-              Grid.ColumnSpan="3"
-              Background="#FFFDD0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <TextBlock x:Name="NameBL"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="10"
-                />
-            <TextBlock x:Name="CostBL"
-                       Grid.Row="1"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="10"
-                />
-            <TextBlock Text="Цена:"
-                       Grid.Row="1"
-                       TextAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="10 0 0 0"
-                />
+            <ListView
+            Grid.Row="1"
+            x:Name="lvOrder"
+            Background="Transparent" 
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                CornerRadius="20"
+                Height="50"
+                Width="900"
+                HorizontalAlignment="Center"
+                Margin="120 10"
+                Background="#4C2F27"
+                >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="470"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="0.4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                    Grid.Column="0"
+                                    Background="#FFD3D2E2"
+                                    CornerRadius="10"
+                                    Margin="19 5"
+                        >
+                                    <TextBlock
+                            x:Name="tbTitle"
+                            Text="{Binding Path = Title}"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            Margin="14 0"
+                        />
+                                </Border>
+                                <TextBlock
+                       x:Name="tbCost" 
+                        Grid.Column="2"
+                        Text="{Binding Path = Cost}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 45 0"
+                        FontSize="24"
+                    />
+                            
+                        </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
             
-    </Grid>
 </Window>

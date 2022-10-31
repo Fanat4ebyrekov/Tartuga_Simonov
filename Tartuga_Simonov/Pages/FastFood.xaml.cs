@@ -27,20 +27,20 @@ namespace Tartuga_Simonov.Pages
         {
             InitializeComponent();
 
-            FastFoodMenu.ItemsSource = context.FastFood.ToList();
+            FastFoodMenu.ItemsSource = context.Dish.ToList();
         }
 
         private void FastFoodMenu_KeyUp(object sender, KeyEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(FastFoodMenu.SelectedItem as EF.FastFood).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var resClick = MessageBox.Show($"Добавить заказ {(FastFoodMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
 
             if (resClick == MessageBoxResult.Yes)
             {
-                EF.FastFood userEdit = FastFoodMenu.SelectedItem as EF.FastFood;
+                Dish userEdit = FastFoodMenu.SelectedItem as Dish;
 
 
-                OrderWindow addOrder = new OrderWindow(userEdit);
+                OrderWindow addOrder = new OrderWindow();
 
                 addOrder.ShowDialog();
 
