@@ -45,10 +45,13 @@ namespace Tartuga_Simonov.Pages
                 return;
             var dishes = button.DataContext as Dish;
 
-            ListDish.dishes.Add(BakeryMenu.SelectedItem as Dish);
+            ListDish.dishes.Add(dishes);
 
 
         }
+
+
+
     }      
 }
 

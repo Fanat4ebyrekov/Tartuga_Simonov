@@ -11,4 +11,9 @@ namespace Tartuga_Simonov.Clases
     {
         public static List<Dish> dishes = new List<Dish>();
     }
+
+    public interface MenuInterface
+    {
+        void ChangeDishCount(int count);
+    }
 }

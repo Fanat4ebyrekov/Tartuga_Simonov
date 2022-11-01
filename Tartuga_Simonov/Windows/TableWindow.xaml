@@ -11,6 +11,64 @@
         WindowStartupLocation="CenterScreen"
         Background="#FFFDD0">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel 
+            Grid.Row="0"
+            Background="#4C2F27"
+            >
+            <TextBlock
+                Text="Укажите номер столика"
+                Foreground="White"
+                FontSize="40"
+                HorizontalAlignment="Center"
+                Margin="10"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <TextBox  Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        Height="50"
+                        Width="500" Background="#4C2F27"
+                        Foreground="White"
+                        TextAlignment="Center"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="35"
+                        
+                />
+
+            <Button x:Name="btnTable"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 80 0"
+                    Content="->"
+                    FontSize="20"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Click="btnTable_Click"
+                />
+            
+
+        </Grid>
         
     </Grid>
 </Window>

@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Height="834" Width="1194"
         Background="{x:Null}"
-        Opacity="20"
         WindowState="Minimized"
         WindowStartupLocation="CenterOwner"
         WindowStyle="None"
@@ -68,16 +67,20 @@
                        x:Name="Salad"
                        Click="Salad_Click"
                 />
-            <Button Height="50"
-                    Margin="0 30 0 0"
-                    x:Name="btnOrder"
-                    Click="btnOrder_Click"
-                />
+            
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2"
                     Background="#4C2F27"
                     >
-            <TextBlock Text="Tortuga"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+    
+                <TextBlock Grid.Column="1"
+                    Text="Tortuga"
                        FontSize="80"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
@@ -85,6 +88,45 @@
                        FontWeight="Normal" 
                        FontStyle="Italic" 
                 />
+
+                <Button Style="{DynamicResource ButtonStyle}" 
+                        Grid.Column="2"
+                    Height="103"
+                    HorizontalAlignment="Right"
+                    x:Name="btnOrder"
+                    Click="btnOrder_Click"
+                    Width="103"
+                    Foreground="White"
+                    VerticalContentAlignment="Top"
+                    FontSize="20" 
+                    BorderBrush="{x:Null}"
+                    Margin="10">
+                    <Button.Resources>
+                        <Style TargetType="Border"
+                               >
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/Cart.png"
+                                    />
+                    </Button.Background>
+                    <TextBlock x:Name="tbQty"
+                               Margin="10 3.5 0 0"
+                               FontSize="20" FontWeight="Bold"
+                               
+                        />
+                </Button>
+
+                <!--<TextBlock Grid.Column="2"
+                           Height="50"
+                           HorizontalAlignment="Right"
+                           Text="Кол-во товара:"
+                           VerticalAlignment="Center"
+                           FontSize="40"
+                    />-->
+
+            </Grid>
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>
@@ -96,7 +138,7 @@
               Grid.Column="1"
               Background="#FFFDD0"
               x:Name="PageWindow"
-              Width="1009"
+              Width="1010"
               Height="709">
             <Frame x:Name="MainFrame"
                    NavigationUIVisibility="Hidden"/>

@@ -23,5 +23,12 @@ namespace Tartuga_Simonov.Windows
         {
             InitializeComponent();
         }
+
+        private void btnTable_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
