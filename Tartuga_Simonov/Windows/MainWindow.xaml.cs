@@ -31,13 +31,13 @@ namespace Tartuga_Simonov
         public MainWindow()
         {
             InitializeComponent();
-
+            MainFrame.Content = new Bakery(this);
             tbQty.Text = dishes.Count.ToString();
         }
 
         private void Bakery_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Bakery());
+            MainFrame.Content = new Bakery(this);
         }
 
         private void Berevage_Click(object sender, RoutedEventArgs e)

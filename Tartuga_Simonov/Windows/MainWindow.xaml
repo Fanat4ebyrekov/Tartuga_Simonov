@@ -9,7 +9,7 @@
         Background="{x:Null}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        ResizeMode="NoResize"
+        ResizeMode="NoResize" Foreground="{x:Null}"
         >
 
     <Grid 
@@ -25,6 +25,11 @@
         <StackPanel Grid.RowSpan="2"
                     Background="#4C2F27"
                     >
+            <StackPanel.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </StackPanel.Resources>
             <Button Margin="0 220 0 0"
                        Content="Выпечка"
                        Background="{x:Null}"
@@ -67,9 +72,14 @@
                 />
 
         </StackPanel>
-        <StackPanel Grid.ColumnSpan="2"
-                    Background="#4C2F27"
+        <StackPanel Grid.ColumnSpan="2" 
+                    Background="#FF4C2F27"
                     >
+            <StackPanel.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </StackPanel.Resources>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -131,9 +141,10 @@
               Background="#FFFDD0"
               x:Name="PageWindow"
               Width="1010"
-              Height="709">
+              Height="713">
             <Frame x:Name="MainFrame"
-                   NavigationUIVisibility="Hidden"/>
+                   NavigationUIVisibility="Hidden" 
+                   Foreground="{x:Null}"/>
         </Grid>
     </Grid>
 </Window>

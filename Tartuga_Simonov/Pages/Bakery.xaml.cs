@@ -28,11 +28,12 @@ namespace Tartuga_Simonov.Pages
     /// </summary>
     public partial class Bakery : Page
     {
-        
-        public Bakery()
+        private MenuInterface menuInteface;
+        public Bakery(MenuInterface menuInterface)
         {
-
+            
             InitializeComponent();
+            this.menuInteface = menuInterface;
             BakeryMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 1).ToList();
                         
         }
@@ -46,7 +47,7 @@ namespace Tartuga_Simonov.Pages
             var dishes = button.DataContext as Dish;
 
             ListDish.dishes.Add(dishes);
-
+            menuInteface.ChangeDishCount(ListDish.dishes.Count);
 
         }
 
