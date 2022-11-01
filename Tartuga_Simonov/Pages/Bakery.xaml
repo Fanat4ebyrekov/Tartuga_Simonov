@@ -90,11 +90,16 @@
                             <Button x:Name="btnAdd"
                                     Grid.Row="2"
                                     Grid.Column="3"
-                                    Width="150"
+                                    Width="50"
                                     Height="50"
-                                    Content="Добавить в корзину"
-                                    Click="btnAdd_Click"
-                                />
+                                    Click="btnAdd_Click" 
+                                    BorderBrush="{x:Null}"
+                                    Style="{DynamicResource ButtonStyle}"
+                                >
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Images/Plus.png"/>
+                                </Button.Background>
+                            </Button>
 
                         </Grid>
                     </Border>

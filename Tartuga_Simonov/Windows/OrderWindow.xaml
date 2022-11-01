@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Order" Height="900" Width="1200"
         WindowStartupLocation="CenterScreen"
-        Background="#FFFDD0">
+        Background="#FFFDD0"
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Grid>
         
         <Grid.RowDefinitions>
@@ -21,14 +23,41 @@
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>
-            <TextBlock Margin="50"
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock 
+                       Grid.Column="1"
+                       Margin="40"
                        Text="Заказ"
                        TextAlignment="Center"
                        FontSize="50"
                        Width="150"
                        Foreground="White"
-                       
                 />
+
+                <Button Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Left"
+                        Margin="15" 
+                        BorderBrush="{x:Null}"
+                        x:Name="btnBack"
+                        Click="btnBack_Click"
+                        Style="{DynamicResource ButtonStyle}"
+                    >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/Vector.png"/>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+            
         </StackPanel>
 
 

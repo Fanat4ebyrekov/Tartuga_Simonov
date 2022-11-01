@@ -7,11 +7,9 @@
         mc:Ignorable="d"
         Height="834" Width="1194"
         Background="{x:Null}"
-        WindowState="Minimized"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
-        AllowsTransparency="True"
         >
 
     <Grid 
@@ -67,7 +65,7 @@
                        x:Name="Salad"
                        Click="Salad_Click"
                 />
-            
+
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2"
                     Background="#4C2F27"
@@ -78,7 +76,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-    
+
                 <TextBlock Grid.Column="1"
                     Text="Tortuga"
                        FontSize="80"
@@ -89,13 +87,14 @@
                        FontStyle="Italic" 
                 />
 
-                <Button Style="{DynamicResource ButtonStyle}" 
-                        Grid.Column="2"
-                    Height="103"
+                <Button 
+                    Style="{DynamicResource ButtonStyle}" 
+                    Grid.Column="2"
+                    Height="100"
                     HorizontalAlignment="Right"
                     x:Name="btnOrder"
                     Click="btnOrder_Click"
-                    Width="103"
+                    Width="100"
                     Foreground="White"
                     VerticalContentAlignment="Top"
                     FontSize="20" 
@@ -113,25 +112,18 @@
                     </Button.Background>
                     <TextBlock x:Name="tbQty"
                                Margin="10 3.5 0 0"
-                               FontSize="20" FontWeight="Bold"
-                               
+                               FontSize="20" 
+                               FontWeight="Bold"
+                               Text=""
                         />
                 </Button>
-
-                <!--<TextBlock Grid.Column="2"
-                           Height="50"
-                           HorizontalAlignment="Right"
-                           Text="Кол-во товара:"
-                           VerticalAlignment="Center"
-                           FontSize="40"
-                    />-->
 
             </Grid>
             <StackPanel.Effect>
                 <DropShadowEffect/>
             </StackPanel.Effect>
 
-            
+
 
         </StackPanel>
         <Grid Grid.Row="1"
@@ -142,9 +134,6 @@
               Height="709">
             <Frame x:Name="MainFrame"
                    NavigationUIVisibility="Hidden"/>
-
         </Grid>
-       
     </Grid>
-
 </Window>

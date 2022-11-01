@@ -9,6 +9,8 @@
         Height="450" 
         Width="800"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         Background="#FFFDD0">
     <Grid>
         <Grid.RowDefinitions>
@@ -49,26 +51,37 @@
                         TextAlignment="Center"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        FontSize="35"
-                        
-                />
+                        FontSize="35" 
+                        BorderBrush="{x:Null}" 
+                        SelectionBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
 
             <Button x:Name="btnTable"
                     Grid.Row="1"
                     Grid.Column="2"
-                    Width="40"
-                    Height="40"
-                    HorizontalAlignment="Right"
-                    Margin="0 0 80 0"
-                    Content="->"
-                    FontSize="20"
-                    Background="{x:Null}"
+                    Width="50"
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Foreground="#4C2F27"
+                    FontSize="30"
                     BorderBrush="{x:Null}"
+                    VerticalContentAlignment="Center"
                     Click="btnTable_Click"
-                />
-            
+                    Style="{DynamicResource ButtonStyle}"
+                >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Confirm.png"/>
+                </Button.Background>
+            </Button>
+
 
         </Grid>
-        
+
     </Grid>
 </Window>
