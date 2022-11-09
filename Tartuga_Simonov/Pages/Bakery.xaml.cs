@@ -42,12 +42,26 @@ namespace Tartuga_Simonov.Pages
         {
 
             var button = sender as Button;
+
             if (button == null)
                 return;
-            var dishes = button.DataContext as Dish;
 
-            ListDish.dishes.Add(dishes);
-            menuInteface.ChangeDishCount(ListDish.dishes.Count);
+            var dish = button.DataContext as Dish;
+
+            if (dish == null)
+                return;
+
+            foreach (var item in dishes)
+            {
+                if (item == dish)
+                {
+                    item.Qty++;
+                    return;
+                }
+            }
+
+            dishes.Add(dish);
+            menuInteface.ChangeDishCount(dishes.Count);
 
         }
 

@@ -94,7 +94,7 @@
                                     CornerRadius="10"
                                     Margin="19 5"
                         >
-                                    <TextBlock
+                                <TextBlock
                             x:Name="tbTitle"
                             Text="{Binding Path = Title}"
                             FontSize="20"
@@ -102,7 +102,36 @@
                             Margin="14 0"
                             Foreground="White"            
                         />
-                                </Border>
+                            </Border>
+
+                            <Button Name="btnMin"
+                                    Grid.Column="1"
+                                    Width="50"
+                                    Height="50"
+                                    HorizontalAlignment="Left"
+                                    Margin="20 0 0 0"
+                                    Click="btnMin_Click"
+                                />
+
+                            <TextBlock x:Name="tbCountDish"
+                                       Grid.Column="1"
+                                       Width="50"
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="25"
+                                       Foreground="White"
+                                       Text="{Binding Qty}"
+                                />
+
+                            <Button x:Name="btnPlus"
+                                    Grid.Column="1"
+                                    Height="50"
+                                    Width="50"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 20 0"
+                                    Click="btnPlus_Click"
+                                />
+
                             <TextBlock Grid.Column="2"
                                        HorizontalAlignment="Left"
                                        Text="Цена:"
@@ -125,7 +154,45 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        <Border Grid.Row="2"
+                Height="70"
+                Width="350"
+                Background="#4C2F27"
+                >
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
 
-        </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="Цена:"
+                           FontSize="30"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           
+                           Foreground="White"
+                    />
+                <TextBlock x:Name="tbCost"
+                           Grid.Column="1"
+                           Height="50"
+                           Width="150"
+                           HorizontalAlignment="Center"
+                           FontSize="40"
+                           TextAlignment="Left"
+                           Foreground="White"
+                    />
+                
+            </Grid>
+            
+        </Border>
+    </Grid>
             
 </Window>

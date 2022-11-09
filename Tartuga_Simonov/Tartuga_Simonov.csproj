@@ -65,7 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clases\CountDish.cs" />
     <Compile Include="Clases\ListDish.cs" />
+    <Compile Include="Clases\SummWithDiscount.cs" />
     <Compile Include="EF\BD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +236,7 @@
       <DependentUpon>BD.edmx</DependentUpon>
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Minus.png" />
     <Resource Include="Images\Plus.png" />
     <Resource Include="Images\Vector.png" />
     <Resource Include="Images\Confirm.png" />

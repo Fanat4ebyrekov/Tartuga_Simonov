@@ -15,5 +15,7 @@ namespace Tartuga_Simonov.Clases
     public interface MenuInterface
     {
         void ChangeDishCount(int count);
+
+        
     }
 }

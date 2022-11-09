@@ -19,6 +19,7 @@ using Tartuga_Simonov.EF;
 using Tartuga_Simonov.Pages;
 using Tartuga_Simonov.Windows;
 using static Tartuga_Simonov.Clases.ListDish;
+using static Tartuga_Simonov.Clases.Entity;
 
 namespace Tartuga_Simonov
 {
@@ -87,6 +88,18 @@ namespace Tartuga_Simonov
         public void ChangeDishCount(int count)
         {
             tbQty.Text = count.ToString();
+
+
+
+            //List<EF.OrderDish> ordh = new List<OrderDish>();
+            //EF.OrderDish[] ordhArr = new OrderDish[ordh.Count()];
+            //ordhArr = ordh.ToArray();
+
+            //for (int i = 0; i < ordhArr.Length; i++)
+            //{
+            //    EF.OrderDish od = ordhArr[i]
+            //   context.OrderDish.Add() 
+            //}
         }
 
 
