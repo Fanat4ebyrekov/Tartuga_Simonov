@@ -237,6 +237,7 @@
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
     <Resource Include="Images\Minus.png" />
+    <Resource Include="Images\PlusW.png" />
     <Resource Include="Images\Plus.png" />
     <Resource Include="Images\Vector.png" />
     <Resource Include="Images\Confirm.png" />
