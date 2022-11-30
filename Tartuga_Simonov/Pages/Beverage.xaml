@@ -13,10 +13,12 @@
 
         <ListView x:Name="BeverageMenu"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    
                     BorderBrush="#FFAA9264"
                     Background="{x:Null}" 
-                    Foreground="Black"
-                    KeyUp="BeverageMenu_KeyUp">
+                    Foreground="Black" 
+                  Grid.ColumnSpan="2" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -29,9 +31,11 @@
                         BorderBrush="#FFA28A60"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Width="600"
+                        Width="580"
                         Height="350"
-                        Margin="10">
+                        Margin="10"
+                        Visibility="Visible"
+                        IsHitTestVisible="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -53,7 +57,8 @@
                                        HorizontalAlignment="Center"
                                        Margin="0 0 10 0"
                                        FontSize="20"
-                                       Foreground="#FFA28A60"/>
+                                       Foreground="#FFA28A60"
+                                       />
 
 
                             <TextBlock Text="{Binding Path = Title}"
@@ -65,6 +70,7 @@
                                         FontSize="20"
                                         Foreground="#FFA28A60"
                                         TextWrapping="Wrap"
+                                        x:Name="tbTitle"
                                        />
 
                             <TextBlock Text="{Binding Path = Cost}"
@@ -74,15 +80,27 @@
                                         HorizontalAlignment="Right"
                                         Margin="0 0 10 0"
                                         FontSize="20"
-                                        Foreground="#FFA28A60"/>
+                                        Foreground="#FFA28A60"
+                                        x:Name="tbCost"/>
 
-
+                            <Button x:Name="btnAdd"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    Width="50"
+                                    Height="50"
+                                    Click="btnAdd_Click" 
+                                    BorderBrush="{x:Null}"
+                                    Style="{DynamicResource ButtonStyle}"
+                                >
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Images/Plus.png"/>
+                                </Button.Background>
+                            </Button>
 
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </Grid>
 </Page>

@@ -31,7 +31,7 @@
                 </Style>
             </StackPanel.Resources>
             <Button Margin="0 220 0 0"
-                       Content="Выпечка"
+                       Content="Гарнир"
                        Background="{x:Null}"
                        FontSize="36" 
                        Foreground="#FFF5EBEB" 
@@ -51,7 +51,7 @@
                        Click="Berevage_Click"
                 />
             <Button    Margin="0 30 0 0"
-                       Content="Фастфуд"
+                       Content="Супы"
                        FontSize="36" 
                        Foreground="#FFF5EBEB" 
                        FontStyle="Italic"

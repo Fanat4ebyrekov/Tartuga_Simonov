@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tartuga_Simonov.EF;
 using static Tartuga_Simonov.Clases.Entity;
+using System.Collections;
+using System.Drawing;
 using Tartuga_Simonov.Windows;
+using static Tartuga_Simonov.Clases.ListDish;
+using Tartuga_Simonov.Clases;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -23,27 +28,39 @@ namespace Tartuga_Simonov.Pages
     /// </summary>
     public partial class Salad : Page
     {
-        public Salad()
+        private MenuInterface menuInteface;
+        public Salad(MenuInterface menuInterface)
         {
-            InitializeComponent();
 
-            SaladMenu.ItemsSource = context.Dish.ToList();
+            InitializeComponent();
+            this.menuInteface = menuInterface;
+            SaladMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 1).ToList();
         }
 
-        private void SaladMenu_KeyUp(object sender, KeyEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(SaladMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var btnAddToCart = sender as Button;
 
+            if (btnAddToCart == null)
+                return;
+            var dishes = btnAddToCart.DataContext as Dish;
 
-            if (resClick == MessageBoxResult.Yes)
+            if (dishes == null)
+                return;
+
+            foreach (var item in ListDish.dishes)
             {
+                if (item == dishes)
+                {
+                    item.Qty++;
 
-                OrderWindow addOrder = new OrderWindow();
-
-                addOrder.ShowDialog();
-
-
+                    OrderWindow.FinalCost += dishes.Cost;
+                    return;
+                }
             }
+
+            ListDish.dishes.Add(dishes);
+            menuInteface.ChangeDishCount(ListDish.dishes.Count);
         }
     }
 }

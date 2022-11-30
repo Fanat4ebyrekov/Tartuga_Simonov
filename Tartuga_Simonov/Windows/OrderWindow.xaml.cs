@@ -34,7 +34,10 @@ namespace Tartuga_Simonov.Windows
            
             lvOrder.ItemsSource = ListDish.dishes.ToList();
             //tbCost.Text = FinalCost.ToString();
-            SummCost();
+            //tbCost.Text = Clases.SumWithDiscount.Sum(_date, FinalCost).ToString();
+            DateTime dateTime = DateTime.Now;
+            tbCost.Text = Clases.SumWithDiscount.Sum(dateTime, OrderWindow.FinalCost).ToString();
+            GetProductList();
 
         }
 
@@ -45,38 +48,19 @@ namespace Tartuga_Simonov.Windows
             this.Close();
         }
 
-        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        private void GetProductList()
         {
-            if (lvOrder.ItemsSource is Dish dish)
-            {
-                dish.Qty++;
-                SummCost();
-                return;
-            }
+            lvOrder.ItemsSource = ListDish.dishes;
         }
 
         private void btnMin_Click(object sender, RoutedEventArgs e)
         {
-            if (lvOrder.ItemsSource is Dish dish)
-            {
-                dish.Qty--;
-                SummCost();
-                return;
-            }
+
         }
 
-        public void SummCost()
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            double summ = 0;
 
-            foreach (var item in dishes)
-            {
-                summ += Convert.ToDouble(item.Cost * item.Qty);
-            }
-
-            var res = summ;
-
-            tbCost.Text = res.ToString() + '₽';
         }
     }
 }

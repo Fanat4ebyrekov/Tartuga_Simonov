@@ -34,34 +34,34 @@ namespace Tartuga_Simonov.Pages
             
             InitializeComponent();
             this.menuInteface = menuInterface;
-            BakeryMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 1).ToList();
+            BakeryMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 4).ToList();
                         
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            var button = sender as Button;
+            var btnAddToCart = sender as Button;
 
-            if (button == null)
+            if (btnAddToCart == null)
+                return;
+            var dishes = btnAddToCart.DataContext as Dish;
+
+            if (dishes == null)
                 return;
 
-            var dish = button.DataContext as Dish;
-
-            if (dish == null)
-                return;
-
-            foreach (var item in dishes)
+            foreach (var item in ListDish.dishes)
             {
-                if (item == dish)
+                if (item == dishes)
                 {
                     item.Qty++;
+
+                    OrderWindow.FinalCost += dishes.Cost;
                     return;
                 }
             }
 
-            dishes.Add(dish);
-            menuInteface.ChangeDishCount(dishes.Count);
+            ListDish.dishes.Add(dishes);
 
         }
 

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Tartuga_Simonov.EF;
 using static Tartuga_Simonov.Clases.Entity;
 using Tartuga_Simonov.Windows;
+using Tartuga_Simonov.Clases;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -24,35 +25,43 @@ namespace Tartuga_Simonov.Pages
     public partial class Beverage : Page
     {
 
-        
-        
-        public Beverage()
+        private MenuInterface menuInteface;
+
+        public Beverage(MenuInterface menuInterface)
         {
             InitializeComponent();
 
-            
+            this.menuInteface = menuInterface;
 
-            BeverageMenu.ItemsSource = context.Dish.ToList();
+            BeverageMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 6).ToList();
         }
 
-        private void BeverageMenu_KeyUp(object sender, KeyEventArgs e)
+       
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(BeverageMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var btnAddToCart = sender as Button;
 
+            if (btnAddToCart == null)
+                return;
+            var dishes = btnAddToCart.DataContext as Dish;
 
-            if (resClick == MessageBoxResult.Yes)
+            if (dishes == null)
+                return;
+
+            foreach (var item in ListDish.dishes)
             {
-                var button = sender as Button;
+                if (item == dishes)
+                {
+                    item.Qty++;
 
-                if (button == null)
+                    OrderWindow.FinalCost += dishes.Cost;
                     return;
-
-                var dish = button.DataContext as Dish;
-
-                
-
-
+                }
             }
+
+            ListDish.dishes.Add(dishes);
+            menuInteface.ChangeDishCount(ListDish.dishes.Count);
         }
     }
 }
+

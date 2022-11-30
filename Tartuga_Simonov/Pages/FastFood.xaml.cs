@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Tartuga_Simonov.EF;
 using static Tartuga_Simonov.Clases.Entity;
 using Tartuga_Simonov.Windows;
+using Tartuga_Simonov.Clases;
+using static Tartuga_Simonov.Clases.ListDish;
 
 namespace Tartuga_Simonov.Pages
 {
@@ -23,29 +25,42 @@ namespace Tartuga_Simonov.Pages
     /// </summary>
     public partial class FastFood : Page
     {
-        public FastFood()
+        private MenuInterface menuInteface;
+        public FastFood(MenuInterface menuInterface)
         {
             InitializeComponent();
-
-            FastFoodMenu.ItemsSource = context.Dish.ToList();
+            this.menuInteface = menuInterface;
+            FastFoodMenu.ItemsSource = context.Dish.Where(i => i.IdCategory == 3).ToList();
         }
 
-        private void FastFoodMenu_KeyUp(object sender, KeyEventArgs e)
+        
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var resClick = MessageBox.Show($"Добавить заказ {(FastFoodMenu.SelectedItem as EF.Dish).Title}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var btnAddToCart = sender as Button;
 
+            if (btnAddToCart == null)
+                return;
+            var dishes = btnAddToCart.DataContext as Dish;
 
-            if (resClick == MessageBoxResult.Yes)
+            if (dishes == null)
+                return;
+
+            foreach (var item in ListDish.dishes)
             {
-                Dish userEdit = FastFoodMenu.SelectedItem as Dish;
+                if (item == dishes)
+                {
+                    item.Qty++;
 
-
-                OrderWindow addOrder = new OrderWindow();
-
-                addOrder.ShowDialog();
-
-
+                    OrderWindow.FinalCost += dishes.Cost;
+                    return;
+                }
             }
+
+            ListDish.dishes.Add(dishes);
+            menuInteface.ChangeDishCount(ListDish.dishes.Count);
         }
+
     }
 }
+

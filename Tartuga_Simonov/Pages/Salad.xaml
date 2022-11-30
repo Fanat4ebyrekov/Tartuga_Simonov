@@ -13,11 +13,12 @@
 
         <ListView x:Name="SaladMenu"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    
                     BorderBrush="#FFAA9264"
                     Background="{x:Null}" 
-                    Foreground="Black"
-                    KeyUp="SaladMenu_KeyUp" d:ItemsSource="{d:SampleData ItemCount=5}" >
+                    Foreground="Black" 
+                  Grid.ColumnSpan="2" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -30,68 +31,76 @@
                         BorderBrush="#FFA28A60"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Width="600"
+                        Width="580"
                         Height="350"
-                        Margin="10">
-                        <Grid Height="500" Width="350">
-                            <StackPanel>
-                                <TextBlock
-                            x:Name="tbTitle"
-                            Margin="25 19 25 0"
-                            Height="58"
-                            FontSize="16"
-                            TextWrapping="Wrap"
-                            FontWeight="Bold"
-                        />
-                                <Grid
-                            Grid.Row="3"
-                            Margin="25 21 25 16"
-                            Height="139" Background="#FFD9D9D9">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="2*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock
-                                x:Name="tbDisc"
-                                Grid.ColumnSpan="2"
-                                Margin="14 19 14 3"
-                                Height="85"
-                                FontSize="12"
-                                TextWrapping="Wrap"
-                                
-                            />
-                                    <TextBlock
-                                x:Name="tbCost"
-                                Grid.Row="1"
-                                Margin="14 3 "
-                                FontSize="24"
-                                
-                                VerticalAlignment="Center" FontWeight="Bold"
-                            />
-                                    <Button
-                                x:Name="btnOrder"
-                                Grid.Column="1"
-                                Grid.Row="1"
-                                Content="Заказать"
-                                Margin="9 3 "
-                                Height="30"
-                                Width="120"
-                                FontSize="20"
-                                VerticalContentAlignment="Center"
-                                HorizontalAlignment="Right" Background="#FF5B568B"
-                            >
-                                    </Button>
-                                </Grid>
-                            </StackPanel>
+                        Margin="10"
+                        Visibility="Visible"
+                        IsHitTestVisible="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock Text="Цена:"
+                                       Grid.Column="0"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="0 0 10 0"
+                                       FontSize="20"
+                                       Foreground="#FFA28A60"
+                                       />
+
+
+                            <TextBlock Text="{Binding Path = Title}"
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="75 0 0 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"
+                                        TextWrapping="Wrap"
+                                        x:Name="tbTitle"
+                                       />
+
+                            <TextBlock Text="{Binding Path = Cost}"
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"
+                                        x:Name="tbCost"/>
+
+                            <Button x:Name="btnAdd"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    Width="50"
+                                    Height="50"
+                                    Click="btnAdd_Click"
+                                    BorderBrush="{x:Null}"
+                                    Style="{DynamicResource ButtonStyle}"
+                                >
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Images/Plus.png"/>
+                                </Button.Background>
+                            </Button>
+
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </Grid>
 </Page>

@@ -110,7 +110,8 @@
                                     Height="50"
                                     HorizontalAlignment="Left"
                                     Margin="20 0 0 0"
-                                    Click="btnMin_Click" BorderBrush="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    Click="btnMin_Click"
                                 >
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/Minus.png"/>
@@ -133,7 +134,9 @@
                                     Width="50"
                                     HorizontalAlignment="Right"
                                     Margin="0 0 20 0"
-                                    Click="btnPlus_Click" BorderBrush="{x:Null}" Foreground="{x:Null}"
+                                    BorderBrush= "{x:Null}" 
+                                    Foreground= "{x:Null}"
+                                    Click="btnPlus_Click"
                                 >
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/PlusW.png"/>
